@@ -3,6 +3,9 @@ FROM maven:3.6.3-jdk-11
 USER root
 
 ARG FILE_NAME
+ARG CONT_DIR
+ARG HOST_DIR
+
 
 COPY ./code/pom.xml ./pom.xml
 
