@@ -19,5 +19,5 @@ COPY ./system/soap/$FILE_NAME ./src/main/resources/wsdl
 
 
 # ENTRYPOINT [ "mvn",  "clean", "install" ]
-ENTRYPOINT [ "bin",  "sh" ]
+ENTRYPOINT [ "/bin",  "/sh" ]
 
