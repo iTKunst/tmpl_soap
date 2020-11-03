@@ -36,7 +36,7 @@ DOCKER_BUILDKIT=1 \
 
 RES=$?
 log_var RES $RES
-if [ RES -ne 0 ]; then
+if [ $RES -ne 0 ]; then
   log_err Unable to build image
 else
   log_cmd Please run pGO to create and run the container
