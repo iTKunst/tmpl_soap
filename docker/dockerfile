@@ -6,6 +6,8 @@ ARG FILE_NAME
 ARG CONT_DIR
 ARG HOST_DIR
 
+RUN mkdir $CONT_DIR
+WORKDIR $CONT_DIR
 
 COPY ./code/pom.xml ./pom.xml
 
