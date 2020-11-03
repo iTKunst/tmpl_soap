@@ -12,7 +12,7 @@ COPY ./code/src ./src
 
 RUN mkdir ./src/main/resources/wsdl
 
-RUN ECHO FILE_NAME is $FILE_NAME
+RUN echo FILE_NAME is $FILE_NAME
 
 COPY ./system/soap/$FILE_NAME ./src/main/resources/wsdl
 
