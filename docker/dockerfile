@@ -18,5 +18,5 @@ COPY ./system/soap/$FILE_NAME ./src/main/resources/wsdl
 
 
 
-ENTRYPOINT [ "mvn",  "package" ]
+ENTRYPOINT [ "mvn",  "clean", "install" ]
 
