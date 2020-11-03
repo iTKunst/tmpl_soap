@@ -10,7 +10,7 @@ RUN mvn dependency:go-offline -B
 
 COPY ./code/src ./src
 
-RUN MKDIR ./src/main/resources/wsdl
+RUN mkdir ./src/main/resources/wsdl
 
 RUN ECHO FILE_NAME is $FILE_NAME
 
