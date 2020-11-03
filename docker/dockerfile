@@ -1,0 +1,20 @@
+FROM maven:3.6.3-jdk-11
+
+USER root
+
+ARG FILE_NAME
+
+COPY ./code/pom.xml ./pom.xml
+
+RUN mvn dependency:go-offline -B
+
+COPY ./code/src ./src
+
+RUN MKDIR ./src/main/
+
+COPY ./system/wsdl/$FILE_NAME ./src/main/resources/wsdl
+
+
+
+ENTRYPOINT [ "mvn",  "package" ]
+
