@@ -25,7 +25,7 @@ RUN echo FILE_NAME is $FILE_NAME
 COPY ./system/soap/$FILE_NAME ./src/main/resources/wsdl
 
 
-RUN mvn clean install
+RUN mvn clean deploy
 
 ENTRYPOINT [ "/bin/sh" ]
 
