@@ -9,6 +9,8 @@ ARG HOST_DIR
 RUN mkdir $CONT_DIR
 WORKDIR $CONT_DIR
 
+COPY ./system/mvn/settings.xml ~
+
 COPY ./code/pom.xml ./pom.xml
 
 RUN mvn dependency:go-offline -B
@@ -20,6 +22,7 @@ RUN mkdir ./src/main/resources/wsdl
 RUN echo FILE_NAME is $FILE_NAME
 
 COPY ./system/soap/$FILE_NAME ./src/main/resources/wsdl
+
 
 RUN mvn clean install
 
