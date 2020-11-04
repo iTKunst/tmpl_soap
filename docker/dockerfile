@@ -9,7 +9,8 @@ ARG HOST_DIR
 RUN mkdir $CONT_DIR
 WORKDIR $CONT_DIR
 
-COPY ./system/mvn/settings.xml ~
+RUN mkdir $HOME/.m2
+COPY ./system/mvn/settings.xml $HOME/.m2
 
 COPY ./code/pom.xml ./pom.xml
 
