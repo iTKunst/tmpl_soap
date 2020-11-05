@@ -2,13 +2,20 @@ FROM gradle:6.6.1-jdk8
 
 USER root
 
+ARG CONT_DIR
+ARG FILE_NAME
 ARG HOME
 
 RUN mkdir -p $HOME
 WORKDIR ${HOME}
 
-COPY ./system/grdl/init.gradle $HOME/.gradle
-
 COPY code .
+COPY system/grdl/init.gradle $HOME/.gradle
+
+RUN mkdir src/main/resources/wsdl
+RUN echo FILE_NAME is $FILE_NAME
+
+COPY system/soap/$FILE_NAME ./src/main/resources/wsdl
+
 
 ENTRYPOINT ["gradle", "build"]
