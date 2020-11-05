@@ -15,7 +15,7 @@ COPY system/grdl/init.gradle $HOME/.gradle
 RUN mkdir src/main/resources/wsdl
 RUN echo FILE_NAME is $FILE_NAME
 
-COPY system/soap/$FILE_NAME ./src/main/resources/wsdl
+COPY system/soap/$FILE_NAME ./src/main/resources/wsdl/client.wsdl
 
 
 ENTRYPOINT ["gradle", "build"]
