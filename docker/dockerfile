@@ -7,6 +7,6 @@ ARG HOME
 RUN mkdir -p $HOME
 WORKDIR ${HOME}
 
-COPY Code .
+COPY code .
 
 ENTRYPOINT ["gradle", "build"]
