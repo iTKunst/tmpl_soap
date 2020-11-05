@@ -7,7 +7,6 @@ ARG HOME
 RUN mkdir -p $HOME
 WORKDIR ${HOME}
 
-RUN mkdir $HOME/.gradle
 COPY ./system/grdl/init.gradle $HOME/.gradle
 
 COPY code .
