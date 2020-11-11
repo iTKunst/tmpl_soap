@@ -19,3 +19,4 @@ COPY system/soap/$FILE_NAME ./src/main/resources/wsdl/client.wsdl
 
 
 ENTRYPOINT ["gradle", "build", "--warning-mode", "all"]
+`$nYGcH;T5iQ
