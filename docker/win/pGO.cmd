@@ -33,12 +33,12 @@ call LOG_VAR USER %USER%
 call LOG_VAR VOL %VOL%
 call LOG_VAR VOL_DIR %VOL_DIR%
 
+
 docker run ^
        -it ^
        -v %CONT_DIR%:%HOST_DIR% ^
        --label=%LABEL% ^
        --name=%CONT% ^
-       --network=%NET% ^
        %IMG%
 
 call LOG_EXIT pGO

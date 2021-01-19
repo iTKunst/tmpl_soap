@@ -42,7 +42,6 @@ docker run \
        -w $CONT_DIR \
        --label=$LABEL \
        --name=$CONT \
-       --network=$NET \
        $IMG
 
 log_unload pGO

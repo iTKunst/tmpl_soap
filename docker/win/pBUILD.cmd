@@ -17,7 +17,6 @@ call LOG_VAR FILE_NAME %FILE_NAME%
 call LOG_VAR HOST_DIR %HOST_DIR%
 call LOG_VAR IMG %IMG%
 
-REM DOCKER_BUILDKIT=1 ^
 docker  build ^
         --build-arg CONT_DIR=%CONT_DIR% ^
         --build-arg FILE_NAME=%FILE_NAME% ^
