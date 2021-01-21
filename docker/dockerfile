@@ -1,21 +1,26 @@
-FROM gradle:6.7.0-jdk11
+FROM maven:3.6.3-jdk-11
 
 USER root
 
 ARG CONT_DIR
 ARG FILE_NAME
-ARG HOME
+ARG HOST_DIR
+ARG SYS_DIR
 
-RUN mkdir -p $HOME
-WORKDIR ${HOME}
+RUN echo CONT_DIR is ${CONT_DIR}
+RUN echo FILE_NAME is $FILE_NAME
+RUN echo HOST_DIR is ${HOST_DIR}
+RUN echo SYS_DIR is ${SYS_DIR}
+
+RUN mkdir -p ${CONT_DIR}
+WORKDIR ${CONT_DIR}
 
 COPY code .
-COPY system/grdl/init.gradle $HOME/.gradle
+COPY --chown=maven:maven .${HOST_DIR} ${CONT_DIR}
+COPY ${SYS_DIR}/maven/settings.xml /home/maven/.m2
 
 RUN mkdir src/main/resources/wsdl
-RUN echo FILE_NAME is $FILE_NAME
-
 COPY system/soap/$FILE_NAME ./src/main/resources/wsdl/client.wsdl
 
 
-ENTRYPOINT ["gradle", "build", "--warning-mode", "all"]
+ENTRYPOINT ["mvn", "clean", "package"]
