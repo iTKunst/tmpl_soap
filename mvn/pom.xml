@@ -1,133 +1,176 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>ca.gc.ccg-gcc</groupId>
-    <artifactId>lloyds-ihs-client</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.1.RELEASE</version>
+	</parent>
 
-    <properties>
-        <java.version>1.8</java.version>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
-    </properties>
+	<groupId>${env.GRP}</groupId>
+	<artifactId>${env.ART}</artifactId>
+	<version>${env.VER}</version>
+	<packaging>jar</packaging>
 
-    <dependencies>
-        <!-- LLoyds IHS web service -->
-        <dependency>
-            <groupId>org.apache.axis2</groupId>
-            <artifactId>axis2-wsdl2code-maven-plugin</artifactId>
-            <version>1.7.8</version>
-        </dependency>
-        <!-- innav database -->
-        <dependency>
-            <groupId>com.microsoft.sqlserver</groupId>
-            <artifactId>mssql-jdbc</artifactId>
-            <version>6.4.0.jre8</version>
-        </dependency>
-    </dependencies>
+	<properties>
+		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
 
-    <build>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>**/*.properties</include>
-                    <include>**/*.txt</include>
-                </includes>
-            </resource>
+	<dependencies>
 
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>false</filtering>
-                <includes>
-                    <include>**/*.*</include>
-                </includes>
-                <excludes>
-                    <exclude>**/*.p12</exclude>
-                </excludes>
-            </resource>
+		<!--JPA -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
 
-            <resource>
-                <directory>target/generated-sources/axis2/wsdl2code/resources</directory>
-            </resource>
-            <resource>
-                <directory>target/generated-sources/xmlbeans/resources</directory>
-            </resource>
+		<dependency>
+			<groupId>com.github.darrachequesne</groupId>
+			<artifactId>spring-data-jpa-datatables</artifactId>
+			<version>5.0.0</version>
+		</dependency>
 
-        </resources>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>2.4.1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 
-        <plugins>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+			<scope>provided</scope>
+		</dependency>
 
-            <!--  Call wsdl2java -->
-            <plugin>
-                <groupId>org.apache.axis2</groupId>
-                <artifactId>axis2-wsdl2code-maven-plugin</artifactId>
-                <version>1.7.8</version>
-                <executions>
-                    <execution>
-                        <id>ws1</id>
-                        <goals>
-                            <goal>wsdl2code</goal>
-                        </goals>
-                        <configuration>
-                            <packageName>ca.gc.ccggcc.cvmsscgv.lloyds</packageName>
-                            <wsdlFile>src/main/resources/wsdl/lloyds.wsdl</wsdlFile>
-                            <databindingName>xmlbeans</databindingName>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.7.30</version>
+			<scope>provided</scope>
+		</dependency>
 
-    <profiles>
-        <profile>
-            <id>jsw-maven</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <build>
-                <plugins>
+		<!-- Plugin required by Eclipse and IntelliJ in oder to see all generated methods-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.0</version>
+			<scope>provided</scope>
+		</dependency>
 
-                    <!-- Package configuration files -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-antrun-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>config-jsw-maven</id>
-                                <phase>process-resources</phase>
-                                <configuration>
-                                    <tasks>
-                                        <copy todir="${assembleDirectory}/conf">
-                                            <fileset dir="src/main/resources">
-                                                <include name="**/cvms.properties"/>
-                                            </fileset>
-                                            <fileset dir="conf">
-                                                <exclude name="**/cvms.properties"/>
-                                            </fileset>
-                                        </copy>
+	</dependencies>
 
-                                        <copy file="src/main/resources/certificates/keystore.p12"
-                                              tofile="${assembleDirectory}/conf/keystore.p12"/>
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.txt</include>
+				</includes>
+			</resource>
 
-                                        <mkdir dir="${assembleDirectory}/temp"/>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.p12</exclude>
+				</excludes>
+			</resource>
 
-                                    </tasks>
-                                </configuration>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
+			<resource>
+				<directory>target/generated-sources/axis2/wsdl2code/resources</directory>
+			</resource>
+			<resource>
+				<directory>target/generated-sources/xmlbeans/resources</directory>
+			</resource>
+
+		</resources>
+
+		<plugins>
+
+
+			<!--         Call wsdl2java -->
+			<plugin>
+				<groupId>org.apache.axis2</groupId>
+				<artifactId>axis2-wsdl2code-maven-plugin</artifactId>
+				<version>1.7.8</version>
+				<executions>
+					<execution>
+						<id>ws1</id>
+						<goals>
+							<goal>wsdl2code</goal>
+						</goals>
+						<configuration>
+							<packageName>ca.gc.ccggcc.cvmsscgv.innav</packageName>
+							<wsdlFile>src/main/resources/wsdl/innav.gc.ca.wsdl</wsdlFile>
+							<databindingName>xmlbeans</databindingName>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>jsw-maven</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+
+					<!-- Package configuration files -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>config-jsw-maven</id>
+								<phase>process-resources</phase>
+								<configuration>
+									<tasks>
+										<copy todir="${assembleDirectory}/conf">
+											<fileset dir="src/main/resources">
+												<include name="**/cvms.properties"/>
+											</fileset>
+											<fileset dir="conf">
+												<exclude name="**/cvms.properties"/>
+											</fileset>
+										</copy>
+
+										<copy file="src/main/resources/certificates/keystore.p12"
+											  tofile="${assembleDirectory}/conf/keystore.p12"/>
+
+										<mkdir dir="${assembleDirectory}/temp"/>
+
+									</tasks>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
 </project>

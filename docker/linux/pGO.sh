@@ -22,6 +22,10 @@ USER=$PROJ_USER
 VOL=$PROJ_VOL
 VOL_DIR=$PROJ_VOL_DIR
 
+ART=PROJ_ART
+GRP=PROJ_GRP
+VER=PROJ_VER
+
 log_var CONT $CONT
 log_var CONT_DIR $CONT_DIR
 log_var HOST $HOST
@@ -36,10 +40,17 @@ log_var USER $USER
 log_var VOL $VOL
 log_var VOL_DIR $VOL_DIR
 
+log_var ART $ART
+log_var GRP $GRP
+log_var VER $VER
+
 docker run \
        -it \
        -v $VOL:$CONT_DIR:rw \
        -w $CONT_DIR \
+       -e PROJ=$PROJ_GRP \
+       -e POSTGRES_USER=$USER \
+       -e POSTGRES_PASSWORD=$PASSWORD \
        --label=$LABEL \
        --name=$CONT \
        $IMG

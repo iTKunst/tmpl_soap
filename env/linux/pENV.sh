@@ -24,4 +24,8 @@ export PROJ_USER=$SOAP_USER
 export PROJ_VOL=$SOAP_VOL
 export PROJ_VOL_DIR=$SOAP_VOL_DIR
 
+export PROJ_GRP=SOAP_GRP
+export PROJ_ART=SOAP_ART
+export PROJ_VER=SOAP_VER
+
 log_exit pENV
