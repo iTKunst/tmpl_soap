@@ -13,14 +13,13 @@ RUN echo SYS_DIR is ${SYS_DIR}
 RUN echo TMPL_DIR is ${TMPL_DIR}
 
 RUN mkdir -p ${CONT_DIR}
+RUN mkdir -p src/main/resources/wsdl
+
 WORKDIR ${CONT_DIR}
 
-COPY ${SYS_DIR}/maven/settings.xml /home/maven/.m2
-
-RUN mkdir -p src/main/resources/wsdl
-COPY ${SYS_DIR}/soap/*.wsdl ./src/main/resources/wsdl
-
 COPY ${TMPL_DIR}/mvn/pom.xml ./
+COPY ${SYS_DIR}/maven/settings.xml /home/maven/.m2
+COPY ${SYS_DIR}/soap/*.wsdl ./src/main/resources/wsdl
 
 ENV ART $ART
 ENV FILE $FILE
