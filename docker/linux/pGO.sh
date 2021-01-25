@@ -50,8 +50,6 @@ log_var VER $VER
 
 docker run \
        -it \
-       -v $VOL:$CONT_DIR:rw \
-       -w $CONT_DIR \
        -e ART=$ART \
        -e FILE=$FILE \
        -e GRP=$GRP \

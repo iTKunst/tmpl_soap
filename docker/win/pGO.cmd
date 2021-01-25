@@ -47,7 +47,6 @@ call LOG_VAR VER %VER%
 
 docker run ^
        -it ^
-       -v %CONT_DIR%:%HOST_DIR% ^
        -e ART=%ART% ^
        -e FILE=%FILE% ^
        -e GRP=%GRP% ^
