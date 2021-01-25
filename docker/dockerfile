@@ -5,6 +5,7 @@ USER root
 ARG CONT_DIR
 ARG HOST_DIR
 ARG SYS_DIR
+ARG TMPL_DIR
 
 ARG ART
 ARG FILE
@@ -25,6 +26,8 @@ COPY ${SYS_DIR}/maven/settings.xml /home/maven/.m2
 
 RUN mkdir src/main/resources/wsdl
 COPY ${SYS_DIR}/soap/${FILE} ./src/main/resources/wsdl
+
+COPY ${TMPL_DIR}/mvn/pom.xml ./src
 
 
 ENTRYPOINT ["mvn", "clean", "package"]
