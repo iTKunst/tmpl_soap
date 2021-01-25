@@ -21,7 +21,7 @@ COPY ${SYS_DIR}/maven/settings.xml /home/maven/.m2
 RUN mkdir -p src/main/resources/wsdl
 COPY ${SYS_DIR}/soap/*.wsdl ./src/main/resources/wsdl
 
-COPY ${TMPL_DIR}/mvn/pom.xml ./src
+COPY ${TMPL_DIR}/mvn/pom.xml .
 
 ENV ART $ART
 ENV FILE $FILE
