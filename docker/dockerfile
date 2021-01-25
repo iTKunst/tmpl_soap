@@ -7,12 +7,6 @@ ARG HOST_DIR
 ARG SYS_DIR
 ARG TMPL_DIR
 
-ENV ART
-ENV FILE
-ENV GRP
-ENV PKG
-ENV VER
-
 RUN echo CONT_DIR is ${CONT_DIR}
 RUN echo HOST_DIR is ${HOST_DIR}
 RUN echo SYS_DIR is ${SYS_DIR}
@@ -30,5 +24,10 @@ COPY ${SYS_DIR}/soap/*.wsdl ./src/main/resources/wsdl
 
 COPY ${TMPL_DIR}/mvn/pom.xml ./src
 
+ENV ART
+ENV FILE
+ENV GRP
+ENV PKG
+ENV VER
 
 ENTRYPOINT ["mvn", "clean", "package"]
