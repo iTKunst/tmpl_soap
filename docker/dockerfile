@@ -27,6 +27,6 @@ ENV GRP $GRP
 ENV PKG $PKG
 ENV VER $VER
 
-#ENTRYPOINT ["mvn", "clean", "package"]
+ENTRYPOINT ["mvn", "clean", "package"]
 
-ENTRYPOINT ["/bin/sh"]
+#ENTRYPOINT ["/bin/sh"]
