@@ -15,7 +15,6 @@ RUN echo TMPL_DIR is ${TMPL_DIR}
 RUN mkdir -p ${CONT_DIR}
 WORKDIR ${CONT_DIR}
 
-COPY --chown=maven:maven .${HOST_DIR} ${CONT_DIR}
 COPY ${SYS_DIR}/maven/settings.xml /home/maven/.m2
 
 RUN mkdir -p src/main/resources/wsdl
