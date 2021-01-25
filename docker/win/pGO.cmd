@@ -19,6 +19,12 @@ SET "USER=%PROJ_USER%"
 SET "VOL=%PROJ_VOL%"
 SET "VOL_DIR=%PROJ_VOL_DIR%"
 
+SET "ART=%PROJ_ART%"
+SET "FILE=%PROJ_FILE%"
+SET "GRP=%PROJ_GRP%"
+SET "PKG=%PROJ_PKG%"
+SET "VER=%PROJ_VER%"
+
 call LOG_VAR CONT %CONT%
 call LOG_VAR CONT_DIR %CONT_DIR%
 call LOG_VAR HOST %HOST%
@@ -33,10 +39,20 @@ call LOG_VAR USER %USER%
 call LOG_VAR VOL %VOL%
 call LOG_VAR VOL_DIR %VOL_DIR%
 
+call LOG_VAR ART %ART%
+call LOG_VAR FILE %FILE%
+call LOG_VAR GRP %GRP%
+call LOG_VAR PKG %PKG%
+call LOG_VAR VER %VER%
 
 docker run ^
        -it ^
        -v %CONT_DIR%:%HOST_DIR% ^
+       -e ART=%ART% ^
+       -e FILE=%FILE% ^
+       -e GRP=%GRP% ^
+       -e PKG=%PKG% ^
+       -e VER=%VER% ^
        --label=%LABEL% ^
        --name=%CONT% ^
        %IMG%
