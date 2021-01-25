@@ -24,10 +24,10 @@ COPY ${SYS_DIR}/soap/*.wsdl ./src/main/resources/wsdl
 
 COPY ${TMPL_DIR}/mvn/pom.xml ./src
 
-ENV ART
-ENV FILE
-ENV GRP
-ENV PKG
-ENV VER
+ENV ART $ART
+ENV FILE $FILE
+ENV GRP $GRP
+ENV PKG $PKG
+ENV VER $VER
 
 ENTRYPOINT ["mvn", "clean", "package"]
