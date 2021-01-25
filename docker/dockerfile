@@ -16,6 +16,7 @@ ARG VER
 RUN echo CONT_DIR is ${CONT_DIR}
 RUN echo HOST_DIR is ${HOST_DIR}
 RUN echo SYS_DIR is ${SYS_DIR}
+RUN echo TMPL_DIR is ${TMPL_DIR}
 
 RUN mkdir -p ${CONT_DIR}
 WORKDIR ${CONT_DIR}
@@ -25,7 +26,7 @@ COPY --chown=maven:maven .${HOST_DIR} ${CONT_DIR}
 COPY ${SYS_DIR}/maven/settings.xml /home/maven/.m2
 
 RUN mkdir src/main/resources/wsdl
-COPY ${SYS_DIR}/soap/${FILE} ./src/main/resources/wsdl
+COPY ${SYS_DIR}/soap/*.wsdl ./src/main/resources/wsdl
 
 COPY ${TMPL_DIR}/mvn/pom.xml ./src
 
