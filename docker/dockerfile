@@ -17,7 +17,7 @@ RUN mkdir -p src/main/resources/wsdl
 
 WORKDIR ${CONT_DIR}
 
-COPY ${TMPL_DIR}/mvn/pom.xml ${CONT_DIR}
+COPY ${TMPL_DIR}/mvn/pom.xml .
 COPY ${SYS_DIR}/maven/settings.xml /home/maven/.m2
 COPY ${SYS_DIR}/soap/*.wsdl ./src/main/resources/wsdl
 
