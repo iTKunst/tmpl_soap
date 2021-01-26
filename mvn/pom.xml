@@ -13,13 +13,11 @@
         <dependency>
             <groupId>org.apache.axis2</groupId>
             <artifactId>axis2-wsdl2code-maven-plugin</artifactId>
-            <version>1.7.7</version>
+            <version>1.7.9</version>
         </dependency>
     </dependencies>
 
     <properties>
-        <maven.compiler.sources>1.8</maven.compiler.sources>
-        <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -30,7 +28,7 @@
             <plugin>
                 <groupId>org.apache.axis2</groupId>
                 <artifactId>axis2-wsdl2code-maven-plugin</artifactId>
-                <version>1.7.7</version>
+                <version>1.7.9</version>
                 <executions>
                     <execution>
                         <goals>
