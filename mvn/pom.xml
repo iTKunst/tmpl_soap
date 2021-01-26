@@ -103,9 +103,6 @@
 		</resources>
 
 		<plugins>
-
-
-			<!--         Call wsdl2java -->
 			<plugin>
 				<groupId>org.apache.axis2</groupId>
 				<artifactId>axis2-wsdl2code-maven-plugin</artifactId>
@@ -117,14 +114,15 @@
 							<goal>wsdl2code</goal>
 						</goals>
 						<configuration>
-							<packageName>ca.gc.ccggcc.cvmsscgv.innav</packageName>
-							<wsdlFile>src/main/resources/wsdl/innav.gc.ca.wsdl</wsdlFile>
+							<packageName>${env.PKG}</packageName>
+							<wsdlFile>src/main/resources/wsdl/${env.FILE}</wsdlFile>
 							<databindingName>xmlbeans</databindingName>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
 		</plugins>
+
 	</build>
 
 	<profiles>
