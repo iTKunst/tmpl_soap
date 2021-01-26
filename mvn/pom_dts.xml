@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.ash.wsdl.java</groupId>
-    <artifactId>wsdl2java</artifactId>
-    <version>1</version>
-    <name>wsdl2java</name>
+    <groupId>${env.GRP}</groupId>
+    <artifactId>${env.ART}</artifactId>
+    <version>${env.VER}</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.apache.axis2</groupId>
             <artifactId>axis2-wsdl2code-maven-plugin</artifactId>
-            <version>1.7.7</version>
+            <version>1.7.9</version>
         </dependency>
     </dependencies>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 
     <build>
         <plugins>
 
-            <!-- Generates JAVA source files from the WSDL -->
             <plugin>
                 <groupId>org.apache.axis2</groupId>
                 <artifactId>axis2-wsdl2code-maven-plugin</artifactId>
-                <version>1.7.7</version>
+                <version>1.7.9</version>
                 <executions>
                     <execution>
                         <goals>
                             <goal>wsdl2code</goal>
                         </goals>
                         <configuration>
-                            <packageName>com.ash.wsdl.java</packageName>
-                            <wsdlFile>APSShipService.wsdl</wsdlFile>
+                            <packageName>${env.PKG}</packageName>
+                            <wsdlFile>src/main/resources/wsdl/${env.FILE}</wsdlFile>
                             <databindingName>xmlbeans</databindingName>
-                            <!--TODO: Update this file with new WSDL versions -->
                         </configuration>
                     </execution>
                 </executions>
@@ -113,6 +113,7 @@
                 <directory>src/main/resources</directory>
             </resource>
         </resources>
+
     </build>
 
 
