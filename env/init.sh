@@ -4,12 +4,6 @@
 
 log_enter /$DIR_TMPL/env/init
 
-cp ./$DIR_TMPL/env/linux/pENV.sh ./bin
-
-if [ ! -f project/env/linux/pENV_MOD.sh ]; then
-  xcopy /q /y \
-     $DIR_TMPL/env/linux/pENV.sh \
-     project/env/linux/pENV_MOD.sh
-fi
+cp ./$DIR_TMPL/env/linux/*.sh ./bin
 
 log_exit /$DIR_TMPL/env/init
