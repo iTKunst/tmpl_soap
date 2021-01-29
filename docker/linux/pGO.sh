@@ -14,6 +14,7 @@ HOST=$PROJ_HOST
 HOST_DIR=$(pwd)$PROJ_HOST_DIR
 IMG=$PROJ_IMG
 LABEL=$PROJ_LABEL
+MODE=$PROJ_MODE
 NET=$PROJ_NET
 PASSWORD=$PROJ_PASSWORD
 PORT_EXT=$PROJ_PORT_EXT
@@ -49,7 +50,7 @@ log_var PKG $PKG
 log_var VER $VER
 
 docker run \
-       -it \
+       -$MODE \
        -e ART=$ART \
        -e FILE=$FILE \
        -e GRP=$GRP \
