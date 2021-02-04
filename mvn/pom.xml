@@ -4,10 +4,10 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.ash.wsdl.java</groupId>
-    <artifactId>wsdl2java</artifactId>
-    <version>1</version>
-    <name>wsdl2java</name>
+    <groupId>${env.GRP}</groupId>
+    <artifactId>${env.ART}</artifactId>
+    <version>${env.VER}</version>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
