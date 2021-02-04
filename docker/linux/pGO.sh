@@ -54,7 +54,6 @@ log_var VER $VER
 
 docker run \
        -$MODE \
-       --mount source=$HOST_DIR,target=$CONT_DIR \
        -e ART=$ART \
        -e FILE=$FILE \
        -e GRP=$GRP \
@@ -62,6 +61,7 @@ docker run \
        -e REPO=$REPO \
        -e VER=$VER \
        --label=$LABEL \
+       --mount source=$HOST_DIR,target=$CONT_DIR \
        --name=$CONT \
        $IMG
 
