@@ -13,7 +13,6 @@ RUN echo SYS_DIR is ${SYS_DIR}
 RUN echo TMPL_DIR is ${TMPL_DIR}
 
 RUN mkdir -p ${CONT_DIR}
-RUN mkdir -p src/main/resources/wsdl
 
 WORKDIR ${CONT_DIR}
 
