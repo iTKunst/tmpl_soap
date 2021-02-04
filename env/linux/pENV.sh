@@ -10,6 +10,7 @@ source pENV_MOD.sh
 
 export PROJ_LABEL=$SYS_NAME
 export PROJ_NET=$SYS_NET
+export PROJ_REPO=$SYS_
 
 export PROJ_CONT=$SOAP_CONT
 export PROJ_CONT_DATA_DIR=$SOAP_DATA_DIR
