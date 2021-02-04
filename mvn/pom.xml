@@ -31,10 +31,9 @@
             <plugin>
                 <groupId>org.apache.axis2</groupId>
                 <artifactId>axis2-wsdl2code-maven-plugin</artifactId>
-                <version>1.7.8</version>
+                <version>1.7.9</version>
                 <executions>
                     <execution>
-                        <id>ws1</id>
                         <goals>
                             <goal>wsdl2code</goal>
                         </goals>
@@ -61,5 +60,20 @@
         </resources>
     </build>
 
+    <distributionManagement>
+
+        <repository>
+            <id>nexusReleases</id>
+            <name>Releases</name>
+            <url>https://nexus.dev.ccg-gcc.gc.ca/repository/maven-releases/</url>
+        </repository>
+
+        <snapshotRepository>
+            <id>nexusSnapshots</id>
+            <name>Snapshot</name>
+            <url>https://nexus.dev.ccg-gcc.gc.ca/repository/maven-snapshots/</url>
+        </snapshotRepository>
+
+    </distributionManagement>
 
 </project>
