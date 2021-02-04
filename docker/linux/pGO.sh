@@ -27,6 +27,7 @@ ART=$PROJ_ART
 FILE=$PROJ_FILE
 GRP=$PROJ_GRP
 PKG=$PROJ_PKG
+REPO=$PROJ_REPO
 VER=$PROJ_VER
 
 log_var CONT $CONT
@@ -48,6 +49,7 @@ log_var ART $ART
 log_var FILE $FILE
 log_var GRP $GRP
 log_var PKG $PKG
+log_var REPO $REPO
 log_var VER $VER
 
 docker run \
@@ -56,6 +58,7 @@ docker run \
        -e FILE=$FILE \
        -e GRP=$GRP \
        -e PKG=$PKG \
+       -e REPO=$REPO \
        -e VER=$VER \
        --label=$LABEL \
        --name=$CONT \

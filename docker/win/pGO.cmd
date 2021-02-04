@@ -24,6 +24,7 @@ SET "ART=%PROJ_ART%"
 SET "FILE=%PROJ_FILE%"
 SET "GRP=%PROJ_GRP%"
 SET "PKG=%PROJ_PKG%"
+SET "REPO=%PROJ_REPO%"
 SET "VER=%PROJ_VER%"
 
 call LOG_VAR CONT %CONT%
@@ -45,6 +46,7 @@ call LOG_VAR ART %ART%
 call LOG_VAR FILE %FILE%
 call LOG_VAR GRP %GRP%
 call LOG_VAR PKG %PKG%
+call LOG_VAR REPO %REPO%
 call LOG_VAR VER %VER%
 
 docker run ^
@@ -53,6 +55,7 @@ docker run ^
        -e FILE=%FILE% ^
        -e GRP=%GRP% ^
        -e PKG=%PKG% ^
+       -e REPO=%REPO% ^
        -e VER=%VER% ^
        --label=%LABEL% ^
        --name=%CONT% ^
