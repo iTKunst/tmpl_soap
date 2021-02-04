@@ -28,6 +28,6 @@ ENV PKG $PKG
 ENV REPO $REPO
 ENV VER $VER
 
-ENTRYPOINT ["mvn", "clean", "package"]
+ENTRYPOINT ["mvn", "deploy"]
 
 #ENTRYPOINT ["/bin/sh"]
