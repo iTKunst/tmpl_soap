@@ -61,8 +61,9 @@ docker run \
        -e REPO=$REPO \
        -e VER=$VER \
        --label=$LABEL \
-       --mount type=bind,src=$HOST_DIR,target=$CONT_DIR \
        --name=$CONT \
        $IMG
 
 log_unload pGO
+
+#       --mount type=bind,src=$HOST_DIR,target=$CONT_DIR \
