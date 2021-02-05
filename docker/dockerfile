@@ -14,9 +14,9 @@ RUN echo TMPL_DIR is ${TMPL_DIR}
 
 WORKDIR ${CONT_DIR}
 
-COPY ${TMPL_DIR}/mvn/pom.xml .
-COPY ${SYS_DIR}/maven/settings.xml /home/maven/.m2
-COPY ${SYS_DIR}/soap/*.wsdl .
+COPY ./${TMPL_DIR}/mvn/pom.xml .
+COPY ./${SYS_DIR}/maven/settings.xml /home/maven/.m2
+COPY ./${SYS_DIR}/soap/*.wsdl .
 
 ENV ART $ART
 ENV FILE $FILE
