@@ -61,7 +61,7 @@ docker run \
        -e REPO=$REPO \
        -e VER=$VER \
        --label=$LABEL \
-       --mount type=bind,src=$HOST_MNT_DIR,target=$CONT_MNT_DIR \
+       --mount type=bind,src=$HOST_DIR,target=$CONT_DIR \
        --name=$CONT \
        $IMG
 

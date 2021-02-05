@@ -12,8 +12,6 @@ RUN echo HOST_DIR is ${HOST_DIR}
 RUN echo SYS_DIR is ${SYS_DIR}
 RUN echo TMPL_DIR is ${TMPL_DIR}
 
-RUN mkdir -p ${CONT_DIR}
-
 WORKDIR ${CONT_DIR}
 
 COPY ${TMPL_DIR}/mvn/pom.xml .
