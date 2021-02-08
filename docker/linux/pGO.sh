@@ -52,6 +52,8 @@ log_var PKG $PKG
 log_var REPO $REPO
 log_var VER $VER
 
+mkdir -p $HOST_MNT_DIR
+
 docker run \
        -$MODE \
        -e ART=$ART \
