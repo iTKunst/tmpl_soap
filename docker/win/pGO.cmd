@@ -49,7 +49,9 @@ call LOG_VAR FILE %FILE%
 call LOG_VAR GRP %GRP%
 call LOG_VAR PKG %PKG%
 call LOG_VAR REPO %REPO%
-call LOG_VAR VER %VER%
+call LOG_VAR VER cVER%
+
+mkdir -p %HOST_MNT_DIR%
 
 docker run ^
        -%MODE% ^
