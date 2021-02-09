@@ -14,9 +14,6 @@ source pENV.sh
 CONT_DIR=$PROJ_CONT_DIR
 HOST_DIR=$PROJ_HOST_DIR
 IMG=$PROJ_IMG
-
-CONT_CFG_DIR=$PROJ_CONT_CFG_DIR
-HOST_CFG_DIR=$PROJ_HOST_CFG_DIR
 USER=$PROJ_USER
 
 log_var CONT_DIR $CONT_DIR
@@ -25,9 +22,8 @@ log_var HOST_DIR $HOST_DIR
 log_var IMG $IMG
 log_var DIR_SYS $DIR_SYS
 log_var TMPL_NAME $TMPL_NAME
+log_var TMPL_DIR $TMPL_DIR
 
-log_var CONT_CFG_DIR $CONT_CFG_DIR
-log_var HOST_CFG_DIR $HOST_CFG_DIR
 log_var MVN_REPO_IP $MVN_REPO_IP
 log_var MVN_REPO_URI $MVN_REPO_URI
 log_var USER $USER
@@ -37,9 +33,9 @@ DOCKER_BUILDKIT=1 \
           build \
           --no-cache \
           --build-arg CONT_DIR=$CONT_DIR \
-          --build-arg HOST_CFG_DIR=$HOST_CFG_DIR \
           --build-arg HOST_DIR=$HOST_DIR \
           --build-arg SYS_DIR=$DIR_SYS \
+          --build-arg TMPL_DIR=$TMPL_DIR \
           --add-host=$MVN_REPO_URI:$MVN_REPO_IP \
           -f $DCKR_URI \
           -t $IMG \
