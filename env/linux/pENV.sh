@@ -6,7 +6,7 @@ log_enter pENV
 
 source sENV.sh
 source pENV_MOD.sh
-source pENV_MOD.sh
+
 
 export PROJ_LABEL=$SYS_NAME
 export PROJ_NET=$SYS_NET
@@ -18,5 +18,6 @@ export PROJ_HOST_DIR=$SOAP_HOST_DIR
 export PROJ_HOST_MNT_DIR=$SOAP_HOST_MNT_DIR
 export PROJ_IMG=$SOAP_IMG
 export PROJ_PORT_INT=$SOAP_PORT_INT
+
 
 log_exit pENV
