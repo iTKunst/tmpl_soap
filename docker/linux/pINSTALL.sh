@@ -11,7 +11,7 @@ log_enter pINSTALL
 
 source pENV.sh
 
-sudo mvn install:install-file \
+mvn install:install-file \
    -Dfile=target \
    -DgroupId=$SOAP_GRP \
    -DartifactId=$SOAP_ART \
