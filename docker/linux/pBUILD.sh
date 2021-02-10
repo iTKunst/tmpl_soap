@@ -22,7 +22,7 @@ log_var HOST_DIR $HOST_DIR
 log_var IMG $IMG
 log_var DIR_SYS $DIR_SYS
 log_var TMPL_NAME $TMPL_NAME
-log_var TMPL_DIR $TMPL_DIR
+log_var DIR_TMPL $DIR_TMPL
 
 log_var MVN_REPO_IP $MVN_REPO_IP
 log_var MVN_REPO_URI $MVN_REPO_URI
@@ -35,7 +35,7 @@ DOCKER_BUILDKIT=1 \
           --build-arg CONT_DIR=$CONT_DIR \
           --build-arg HOST_DIR=$HOST_DIR \
           --build-arg SYS_DIR=$DIR_SYS \
-          --build-arg TMPL_DIR=$TMPL_DIR \
+          --build-arg TMPL_DIR=$DIR_TMPL \
           --add-host=$MVN_REPO_URI:$MVN_REPO_IP \
           -f $DCKR_URI \
           -t $IMG \
