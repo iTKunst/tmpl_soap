@@ -12,6 +12,6 @@ log_enter pINSTALL
 source pENV.sh
 
 mkdir -p $DIR_SYS/$PROJ_NAME
-xcopy target/generated-sources $DIR_SYS/$PROJ_NAME
+cp target/generated-sources $DIR_SYS/$PROJ_NAME
 
 log_exit pINSTALL
