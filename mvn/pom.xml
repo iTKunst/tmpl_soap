@@ -76,4 +76,50 @@
 
     </distributionManagement>
 
+    <profiles>
+        <profile>
+            <id>jsw-maven</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+
+                    <!-- Package configuration files -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>config-jsw-maven</id>
+                                <phase>process-resources</phase>
+                                <configuration>
+                                    <tasks>
+                                        <copy todir="${assembleDirectory}/conf">
+                                            <fileset dir="src/main/resources">
+                                                <include name="**/cvms.properties"/>
+                                            </fileset>
+                                            <fileset dir="conf">
+                                                <exclude name="**/cvms.properties"/>
+                                            </fileset>
+                                        </copy>
+
+                                        <copy file="src/main/resources/certificates/keystore.p12"
+                                              tofile="${assembleDirectory}/conf/keystore.p12"/>
+
+                                        <mkdir dir="${assembleDirectory}/temp"/>
+
+                                    </tasks>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
 </project>
