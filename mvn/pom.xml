@@ -79,10 +79,13 @@
     <profiles>
         <profile>
             <id>jsw-maven</id>
+
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+
             <build>
+
                 <plugins>
 
                     <!-- Package configuration files -->
