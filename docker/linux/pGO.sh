@@ -70,8 +70,8 @@ docker run \
        --name=$CONT \
        $IMG
 
-source pKILL.sh
 source pINSTALL.sh
+source pKILL.sh
 
 log_unload pGO
 
