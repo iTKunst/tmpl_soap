@@ -15,7 +15,13 @@ log_var DIR_SYS $DIR_SYS
 log_var PROJ_NAME $PROJ_NAME
 log_var SYS_NAME $SYS_NAME
 
-mkdir -p ../$SYS_NAME/soap/$PROJ_NAME
-cp target/generated-sources ../$SYS_NAME/soap/$PROJ_NAME
+export TARGET=../$DIR_SYS$SPLIT$SYS_NAME/soap/$PROJ_NAME
+export SOURCE=target/generated-sources
+
+log_var TARGET $TARGET
+log_var SOURCE $SOURCE
+
+mkdir -p $TARGET
+cp -r $SOURCE $TARGET
 
 log_exit pINSTALL
