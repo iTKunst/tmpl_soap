@@ -16,7 +16,7 @@ log_var PROJ_NAME $PROJ_NAME
 log_var SYS_NAME $SYS_NAME
 
 export TARGET=../$SYS_NAME$SPLIT$DIR_SYS/soap/$PROJ_NAME/
-export SOURCE=target/
+export SOURCE=target/generated-sources/
 
 log_var TARGET $TARGET
 log_var SOURCE $SOURCE
