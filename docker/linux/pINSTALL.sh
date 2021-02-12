@@ -15,8 +15,8 @@ log_var DIR_SYS $DIR_SYS
 log_var PROJ_NAME $PROJ_NAME
 log_var SYS_NAME $SYS_NAME
 
-export TARGET=../$SYS_NAME$SPLIT$DIR_SYS/soap/$PROJ_NAME/src/main/java/
-export SOURCE=target/generated-sources/axis2/wsdl2code/src
+export TARGET=../$SYS_NAME$SPLIT$DIR_SYS/soap/$PROJ_NAME
+export SOURCE=target/generated-sources/axis2/wsdl2code
 
 log_var TARGET $TARGET
 log_var SOURCE $SOURCE
