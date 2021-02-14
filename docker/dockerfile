@@ -17,8 +17,10 @@ RUN mkdir -p ${CONT_DIR}
 WORKDIR ${CONT_DIR}
 
 COPY ./${TMPL_DIR}/mvn/pom.xml .
-COPY ./${SYS_DIR}/maven/settings.xml /home/maven/.m2
 COPY ./${SYS_DIR}/soap/*.wsdl .
+
+RUN mkdir -p /root/.m2
+COPY ./${SYS_DIR}/maven/settings.xml /root/.m2
 
 ENV ART $ART
 ENV FILE $FILE
