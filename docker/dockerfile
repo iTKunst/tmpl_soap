@@ -26,10 +26,9 @@ RUN mkdir -p /root/.m2
 COPY ./${SYS_DIR}/maven/settings.public.xml /root/.m2/settings.xml
 
 RUN echo CERT_DIR is ${CERT_DIR}
+RUN mkdir -p ${CERT_DIR}
 
-RUN mkdir -p /root/.m2
-
-COPY ./${SYS_DIR}/maven/nexus.cert .
+COPY ./${SYS_DIR}/nexus/nexus.cert .
 RUN keytool -import -alias nexus -keystore $CERT_DIR -file nexus.cert
 
 
