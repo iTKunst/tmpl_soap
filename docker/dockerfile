@@ -23,8 +23,10 @@ COPY ./${SYS_DIR}/soap/*.wsdl .
 RUN mkdir -p /root/.m2
 COPY ./${SYS_DIR}/maven/settings.public.xml /root/.m2/settings.xml
 
-RUN CERT_DIR=$(readlink -f /usr/bin/java | sed "s:bin/java::")lib/security/cacerts
+RUN CERT_DIR=
 RUN echo CERT_DIR is ${CERT_DIR}
+
+RUN mkdir -p /root/.m2
 
 COPY ./${SYS_DIR}/maven/nexus.cert .
 RUN keytool -import -alias nexus -keystore $CERT_DIR -file nexus.cert
