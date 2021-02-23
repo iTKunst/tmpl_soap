@@ -6,11 +6,13 @@ call LOG_ENTER pBUILD
 
 CALL pENV
 
+SET "CERT_DIR=%PROJ_CERT_DIR%"
 SET "CONT_DIR=%PROJ_CONT_DIR%"
 SET "HOST_DIR=%PROJ_HOST_DIR%"
 SET "IMG=%PROJ_IMG%"
 SET "USER=%PROJ_USER%"
 
+call LOG_VAR CERT_DIR %CERT_DIR%
 call LOG_VAR CONT_DIR %CONT_DIR%
 call LOG_VAR DCKR_URI %DCKR_URI%
 call LOG_VAR DIR_SYS %DIR_SYS%
@@ -23,6 +25,7 @@ call LOG_VAR USER %USER%
 
 REM DOCKER_BUILDKIT=1 ^
 docker  build ^
+        --build-arg CERT_DIR=%CERT_DIR% ^
         --build-arg CONT_DIR=%CONT_DIR% ^
         --build-arg HOST_CFG_DIR=%HOST_CFG_DIR% ^
         --build-arg HOST_DIR=%HOST_DIR% ^

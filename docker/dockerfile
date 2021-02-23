@@ -8,11 +8,13 @@ ARG HOST_DIR
 ARG SYS_DIR
 ARG TMPL_DIR
 
+RUN echo CERT_DIR is ${CERT_DIR}
 RUN echo CONT_DIR is ${CONT_DIR}
 RUN echo HOST_DIR is ${HOST_DIR}
 RUN echo SYS_DIR is ${SYS_DIR}
 RUN echo TMPL_DIR is ${TMPL_DIR}
 
+RUN mkdir -p ${CERT_DIR}
 RUN mkdir -p ${CONT_DIR}
 
 WORKDIR ${CONT_DIR}
@@ -23,7 +25,6 @@ COPY ./${SYS_DIR}/soap/*.wsdl .
 RUN mkdir -p /root/.m2
 COPY ./${SYS_DIR}/maven/settings.public.xml /root/.m2/settings.xml
 
-RUN CERT_DIR=
 RUN echo CERT_DIR is ${CERT_DIR}
 
 RUN mkdir -p /root/.m2

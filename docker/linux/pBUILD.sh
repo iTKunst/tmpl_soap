@@ -11,11 +11,13 @@ log_enter pBUILD
 
 source pENV.sh
 
+CERT_DIR=$PROJ_CERT_DIR
 CONT_DIR=$PROJ_CONT_DIR
 HOST_DIR=$PROJ_HOST_DIR
 IMG=$PROJ_IMG
 USER=$PROJ_USER
 
+log_var CERT_DIR $CERT_DIR
 log_var CONT_DIR $CONT_DIR
 log_var DCKR_URI $DCKR_URI
 log_var DIR_SYS $DIR_SYS
@@ -31,6 +33,7 @@ DOCKER_BUILDKIT=1 \
           docker  \
           build \
           --no-cache \
+          --build-arg CERT_DIR=$CERT_DIR \
           --build-arg CONT_DIR=$CONT_DIR \
           --build-arg HOST_DIR=$HOST_DIR \
           --build-arg SYS_DIR=$DIR_SYS \
