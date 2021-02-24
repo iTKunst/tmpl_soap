@@ -29,7 +29,8 @@ RUN echo CERT_DIR is ${CERT_DIR}
 RUN mkdir -p ${CERT_DIR}
 
 COPY ./${SYS_DIR}/nexus/nexus.crt ${CERT_DIR}
-RUN update-ca-certificates
+RUN update-ca-trust
+#RUN update-ca-certificates
 
 
 ENV ART $ART
