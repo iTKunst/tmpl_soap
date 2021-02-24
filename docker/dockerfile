@@ -28,7 +28,7 @@ COPY ./${SYS_DIR}/maven/settings.public.xml /root/.m2/settings.xml
 RUN echo CERT_DIR is ${CERT_DIR}
 #RUN mkdir -p ${CERT_DIR}
 
-COPY ./${SYS_DIR}/nexus/nexus.cer ${CERT_DIR}
+COPY ./${SYS_DIR}/nexus/nexus.crt ${CERT_DIR}
 #RUN update-ca-trust
 RUN update-ca-certificates
 
