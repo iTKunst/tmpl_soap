@@ -54,6 +54,9 @@ log_var REPO_URL $REPO_URL
 log_var REPO_PORT $REPO_PORT
 log_var VER $VER
 
+log_var MVN_REPO_IP $MVN_REPO_IP
+log_var MVN_REPO_URI $MVN_REPO_URI
+
 mkdir -p $HOST_MNT_DIR
 
 docker run \
@@ -65,6 +68,7 @@ docker run \
        -e REPO_URL=$REPO_URL \
        -e REPO_PORT=$REPO_PORT \
        -e VER=$VER \
+       --add-host=$MVN_REPO_URI:$MVN_REPO_IP \
        --label=$LABEL \
        --mount type=bind,src=$HOST_MNT_DIR,target=$CONT_MNT_DIR \
        --name=$CONT \
