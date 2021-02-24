@@ -41,6 +41,6 @@ ENV REPO_URL $REPO_URL
 ENV REPO_PORT $REPO_PORT
 ENV VER $VER
 
-#ENTRYPOINT ["mvn", "deploy"]
+ENTRYPOINT ["mvn", "deploy"]
 
-ENTRYPOINT ["/bin/sh"]
+#ENTRYPOINT ["/bin/sh"]
