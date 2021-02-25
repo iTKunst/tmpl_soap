@@ -8,11 +8,26 @@ ARG HOST_DIR
 ARG SYS_DIR
 ARG TMPL_DIR
 
+ARG ART $ART
+ARG FILE $FILE
+ARG GRP $GRP
+ARG REPO_URL $REPO_URL
+ARG REPO_PORT $REPO_PORT
+ARG VER $VER
+
 RUN echo CERT_DIR is ${CERT_DIR}
 RUN echo CONT_DIR is ${CONT_DIR}
 RUN echo HOST_DIR is ${HOST_DIR}
 RUN echo SYS_DIR is ${SYS_DIR}
 RUN echo TMPL_DIR is ${TMPL_DIR}
+
+RUN echo ART is ${ART}
+RUN echo FILE is ${FILE}
+RUN echo GRP is ${GRP}
+RUN echo REPO_URL is ${REPO_URL}
+RUN echo REPO_PORT is ${REPO_PORT}
+RUN echo VER is ${VER}
+
 
 RUN mkdir -p ${CERT_DIR}
 RUN mkdir -p ${CONT_DIR}
@@ -32,10 +47,11 @@ COPY ./${SYS_DIR}/nexus/nexus.crt ${CERT_DIR}
 #RUN update-ca-trust
 RUN update-ca-certificates -v
 
+# build all dependencies for offline use
+RUN mvn dependency:go-offline -B
 
 ENV ART $ART
 ENV FILE $FILE
-ENV GRP $GRP
 ENV PKG $PKG
 ENV REPO_URL $REPO_URL
 ENV REPO_PORT $REPO_PORT
