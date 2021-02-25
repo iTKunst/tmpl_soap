@@ -24,7 +24,9 @@ SET "ART=%PROJ_ART%"
 SET "FILE=%PROJ_FILE%"
 SET "GRP=%PROJ_GRP%"
 SET "PKG=%PROJ_PKG%"
-SET "REPO=%PROJ_REPO%"
+SET "REPO_IP=%MVN_REPO_IP%"
+SET "REPO_PORT=%MVN_REPO_PORT%"
+SET "REPO_URL=%MVN_REPO_URI%"
 SET "VER=%PROJ_VER%"
 
 call LOG_VAR CONT %CONT%
@@ -46,7 +48,9 @@ call LOG_VAR ART %ART%
 call LOG_VAR FILE %FILE%
 call LOG_VAR GRP %GRP%
 call LOG_VAR PKG %PKG%
-call LOG_VAR REPO %REPO%
+call LOG_VAR REPO_IP %REPO_IP%
+call LOG_VAR REPO_PORT %REPO_PORT%
+call LOG_VAR REPO_URL %REPO_URL%
 call LOG_VAR VER cVER%
 
 mkdir -p %HOST_MNT_DIR%
@@ -57,8 +61,10 @@ docker run ^
        -e FILE=%FILE% ^
        -e GRP=%GRP% ^
        -e PKG=%PKG% ^
-       -e REPO=%REPO% ^
+       -e REPO_URL=%REPO_URL% ^
+       -e REPO_PORT=%REPO_PORT% ^
        -e VER=%VER% ^
+       --add-host=%REPO_URL%:%REPO_IP% ^
        --label=%LABEL% ^
        --mount type=bind,src=%HOST_MNT_DIR%,target=%CONT_MNT_DIR% ^
        --name=%CONT% ^

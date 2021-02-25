@@ -20,7 +20,8 @@ USER=$PROJ_USER
 ART=$PROJ_ART
 FILE=$PROJ_FILE
 GRP=$PROJ_GRP
-REPO_URL=$PROJ_REPO_URL
+REPO_IP=$MVN_REPO_IP
+REPO_URL=MVN_REPO_URI
 REPO_PORT=$PROJ_REPO_PORT
 VER=$PROJ_VER
 
@@ -31,16 +32,15 @@ log_var DIR_SYS $DIR_SYS
 log_var DIR_TMPL $DIR_TMPL
 log_var HOST_DIR $HOST_DIR
 log_var IMG $IMG
-log_var MVN_REPO_IP $MVN_REPO_IP
-log_var MVN_REPO_URI $MVN_REPO_URI
 log_var TMPL_NAME $TMPL_NAME
 log_var USER $USER
 
 log_var ART $ART
 log_var FILE $FILE
 log_var GRP $GRP
-log_var REPO_URL $REPO_URL
+log_var REPO_IP $REPO_IP
 log_var REPO_PORT $REPO_PORT
+log_var REPO_URL $REPO_URL
 log_var VER $VER
 
 DOCKER_BUILDKIT=1 \
@@ -58,7 +58,7 @@ DOCKER_BUILDKIT=1 \
           --build-arg REPO_URL=$REPO_URL \
           --build-arg REPO_PORT=$REPO_PORT \
           --build-arg VER=$VER \
-          --add-host=$MVN_REPO_URI:$MVN_REPO_IP \
+          --add-host=$REPO_URI:$REPO_IP \
           -f $DCKR_URI \
           -t $IMG \
           .
