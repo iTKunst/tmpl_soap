@@ -23,8 +23,8 @@ PORT_EXT=$PROJ_PORT_EXT
 PORT_INT=$PROJ_PORT_INT
 USER=$PROJ_USER
 
-REPO_PORT=$PROJ_REPO_PORT
-REPO_URL=$MVN_REPO_URI
+REPO_HOST=$MVN_REPO_HOST
+REPO_IP=$PROJ_REPO_IP
 
 log_var CONT $CONT
 log_var CONT_DIR $CONT_DIR
@@ -41,15 +41,13 @@ log_var PORT_EXT $PORT_EXT
 log_var PORT_INT $PORT_INT
 log_var USER $USER
 
-log_var REPO_PORT $REPO_PORT
-log_var REPO_URL $REPO_URL
+log_var REPO_HOST $REPO_HOST
+log_var REPO_IP $REPO_IP
 
 mkdir -p $HOST_MNT_DIR
 
 docker run \
        -$MODE \
-       -e REPO_URL=$REPO_URL \
-       -e REPO_PORT=$REPO_PORT \
        --add-host=$MVN_REPO_URI:$MVN_REPO_IP \
        --label=$LABEL \
        --mount type=bind,src=$HOST_MNT_DIR,target=$CONT_MNT_DIR \
