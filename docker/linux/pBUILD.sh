@@ -56,7 +56,7 @@ DOCKER_BUILDKIT=1 \
           --build-arg FILE=$FILE \
           --build-arg GRP=$GRP \
           --build-arg REPO_HOST=$REPO_HOST \
-          --build-arg REPO_PORT_EXT=REPO_PORT_EXT \
+          --build-arg REPO_PORT_EXT=$REPO_PORT_EXT \
           --build-arg VER=$VER \
           --add-host=$REPO_HOST:$REPO_IP \
           -f $DCKR_URI \
