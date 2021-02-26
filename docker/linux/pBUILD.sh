@@ -43,7 +43,7 @@ log_var REPO_IP $REPO_IP
 log_var REPO_PORT_EXT $REPO_PORT_EXT
 log_var VER $VER
 
-source pKILL.sh
+source pSTOP.sh
 
 DOCKER_BUILDKIT=1 \
           docker  \
