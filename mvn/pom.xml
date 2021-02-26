@@ -65,13 +65,13 @@
         <repository>
             <id>nexusReleases</id>
             <name>Releases</name>
-            <url>${env.REPO_URL}:${env.REPO_PORT}/repository/maven-releases/</url>
+            <url>${env.REPO_HOST}:${env.REPO_PORT_EXT}/repository/maven-releases/</url>
         </repository>
 
         <snapshotRepository>
             <id>nexusSnapshots</id>
             <name>Snapshot</name>
-            <url>${env.REPO_URL}:${env.REPO_PORT}/repository/maven-snapshots/</url>
+            <url>${env.REPO_HOST}:${env.REPO_PORT_EXT}/repository/maven-snapshots/</url>
         </snapshotRepository>
 
     </distributionManagement>
