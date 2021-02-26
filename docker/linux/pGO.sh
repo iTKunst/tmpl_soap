@@ -48,7 +48,7 @@ mkdir -p $HOST_MNT_DIR
 
 docker run \
        -$MODE \
-       --add-host=$MVN_REPO_URI:$MVN_REPO_IP \
+       --add-host=$REPO_HOST:$REPO_IP \
        --label=$LABEL \
        --mount type=bind,src=$HOST_MNT_DIR,target=$CONT_MNT_DIR \
        --name=$CONT \
