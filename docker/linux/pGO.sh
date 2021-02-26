@@ -55,7 +55,8 @@ docker run \
        $IMG
 
 source pINSTALL.sh
-source pKILL.sh
+source pSTOP.sh
+source pDEL_CONT.sh
 
 log_unload pGO
 
