@@ -22,7 +22,7 @@ FILE=$PROJ_FILE
 GRP=$PROJ_GRP
 REPO_HOST=$PROJ_REPO_HOST
 REPO_IP=$PROJ_REPO_IP
-REPO_PORT=$PROJ_REPO_PORT
+REPO_PORT_EXT=$PROJ_REPO_PORT_EXT
 VER=$PROJ_VER
 
 log_var CERT_DIR $CERT_DIR
@@ -40,7 +40,7 @@ log_var FILE $FILE
 log_var GRP $GRP
 log_var REPO_HOST $REPO_HOST
 log_var REPO_IP $REPO_IP
-log_var REPO_PORT $REPO_PORT
+log_var REPO_PORT_EXT $REPO_PORT_EXT
 log_var VER $VER
 
 DOCKER_BUILDKIT=1 \
@@ -56,7 +56,7 @@ DOCKER_BUILDKIT=1 \
           --build-arg FILE=$FILE \
           --build-arg GRP=$GRP \
           --build-arg REPO_HOST=$REPO_HOST \
-          --build-arg REPO_PORT=$REPO_PORT \
+          --build-arg REPO_PORT_EXT=REPO_PORT_EXT \
           --build-arg VER=$VER \
           --add-host=$REPO_HOST:$REPO_IP \
           -f $DCKR_URI \
