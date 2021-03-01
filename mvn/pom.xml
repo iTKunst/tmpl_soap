@@ -54,7 +54,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>ossrh</serverId>
-                    <nexusUrl>${env.REPO_HOST}:${env.REPO_PORT_EXT}</nexusUrl>
+                    <nexusUrl>https://${env.REPO_HOST}:${env.REPO_PORT_EXT}</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
                 <dependencies>
