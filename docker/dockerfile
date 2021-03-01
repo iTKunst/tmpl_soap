@@ -57,6 +57,13 @@ ENV REPO_HOST $REPO_HOST
 ENV REPO_PORT_EXT $REPO_PORT_EXT
 ENV VER $VER
 
+RUN echo ART is ${ART}
+RUN echo FILE is ${FILE}
+RUN echo GRP is ${GRP}
+RUN echo REPO_HOST is ${REPO_HOST}
+RUN echo REPO_PORT_EXT is ${REPO_PORT_EXT}
+RUN echo VER is ${VER}
+
 ENTRYPOINT ["mvn", "deploy"]
 
 #ENTRYPOINT ["/bin/sh"]
