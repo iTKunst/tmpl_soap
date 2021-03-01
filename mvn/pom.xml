@@ -53,7 +53,7 @@
                 <version>1.6.2</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <serverId>ossrh</serverId>
+                    <serverId>nexus</serverId>
                     <nexusUrl>https://${env.REPO_HOST}:${env.REPO_PORT_EXT}</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
