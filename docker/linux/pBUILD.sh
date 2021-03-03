@@ -49,12 +49,12 @@ DOCKER_BUILDKIT=1 \
           docker  \
           build \
           --no-cache \
-          --build-arg CONT_CERT_DIR=$CONT_CERT_DIR \
           --build-arg CONT_DIR=$CONT_DIR \
           --build-arg HOST_DIR=$HOST_DIR \
           --build-arg SYS_DIR=$DIR_SYS \
           --build-arg TMPL_DIR=$DIR_TMPL \
           --build-arg ART=$ART \
+          --build-arg CONT_CERT_DIR=$CONT_CERT_DIR \
           --build-arg FILE=$FILE \
           --build-arg GRP=$GRP \
           --build-arg REPO_HOST=$REPO_HOST \

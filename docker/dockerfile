@@ -2,26 +2,26 @@ FROM maven:3.6.3-jdk-8
 
 USER root
 
-ARG CONT_CERT_DIR
 ARG CONT_DIR
 ARG HOST_DIR
 ARG SYS_DIR
 ARG TMPL_DIR
 
 ARG ART
+ARG CONT_CERT_DIR
 ARG FILE
 ARG GRP
 ARG REPO_HOST
 ARG REPO_PORT_EXT
 ARG VER
 
-RUN echo CONT_CERT_DIR is ${CONT_CERT_DIR}
 RUN echo CONT_DIR is ${CONT_DIR}
 RUN echo HOST_DIR is ${HOST_DIR}
 RUN echo SYS_DIR is ${SYS_DIR}
 RUN echo TMPL_DIR is ${TMPL_DIR}
 
 RUN echo ART is ${ART}
+RUN echo CONT_CERT_DIR is ${CONT_CERT_DIR}
 RUN echo FILE is ${FILE}
 RUN echo GRP is ${GRP}
 RUN echo REPO_HOST is ${REPO_HOST}
@@ -29,10 +29,9 @@ RUN echo REPO_PORT_EXT is ${REPO_PORT_EXT}
 RUN echo VER is ${VER}
 
 
-RUN mkdir -p ${CONT_CERT_DIR}
 RUN mkdir -p ${CONT_DIR}
 
-WORKDIR ${CONT_CERT_DIR}
+WORKDIR ${CONT_DIR}
 
 COPY ./${TMPL_DIR}/mvn/pom.xml .
 COPY ./${SYS_DIR}/soap/*.wsdl .
@@ -40,11 +39,9 @@ COPY ./${SYS_DIR}/soap/*.wsdl .
 RUN mkdir -p /root/.m2
 COPY ./${SYS_DIR}/maven/settings.xml /root/.m2/settings.xml
 
-RUN echo CONT_CERT_DIR is ${CONT_CERT_DIR}
-#RUN mkdir -p ${CERT_DIR}
+RUN mkdir -p ${CONT_CERT_DIR}
 
 COPY ./${SYS_DIR}/nexus/nexus.crt ${CONT_CERT_DIR}
-#RUN update-ca-trust
 RUN update-ca-certificates -v
 
 # build all dependencies for offline use
