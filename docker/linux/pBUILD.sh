@@ -12,13 +12,13 @@ log_enter pBUILD
 source pSTOP.sh
 source pENV.sh
 
-CERT_DIR=$PROJ_CERT_DIR
 CONT_DIR=$PROJ_CONT_DIR
 HOST_DIR=$PROJ_HOST_DIR
 IMG=$PROJ_IMG
 USER=$PROJ_USER
 
 ART=$PROJ_ART
+CONT_CERT_DIR=$PROJ_CONT_CERT_DIR
 FILE=$PROJ_FILE
 GRP=$PROJ_GRP
 REPO_HOST=$PROJ_REPO_HOST
@@ -26,7 +26,6 @@ REPO_IP=$PROJ_REPO_IP
 REPO_PORT_EXT=$PROJ_REPO_PORT_EXT
 VER=$PROJ_VER
 
-log_var CERT_DIR $CERT_DIR
 log_var CONT_DIR $CONT_DIR
 log_var DCKR_URI $DCKR_URI
 log_var DIR_SYS $DIR_SYS
@@ -37,6 +36,7 @@ log_var TMPL_NAME $TMPL_NAME
 log_var USER $USER
 
 log_var ART $ART
+log_var CONT_CERT_DIR $CONT_CERT_DIR
 log_var FILE $FILE
 log_var GRP $GRP
 log_var REPO_HOST $REPO_HOST
@@ -49,7 +49,7 @@ DOCKER_BUILDKIT=1 \
           docker  \
           build \
           --no-cache \
-          --build-arg CERT_DIR=$CERT_DIR \
+          --build-arg CONT_CERT_DIR=$CONT_CERT_DIR \
           --build-arg CONT_DIR=$CONT_DIR \
           --build-arg HOST_DIR=$HOST_DIR \
           --build-arg SYS_DIR=$DIR_SYS \
