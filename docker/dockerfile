@@ -38,7 +38,7 @@ COPY ./${TMPL_DIR}/mvn/pom.xml .
 COPY ./${SYS_DIR}/soap/*.wsdl .
 
 RUN mkdir -p /root/.m2
-COPY ./${SYS_DIR}/maven/settings.public.xml /root/.m2/settings.xml
+COPY ./${SYS_DIR}/maven/settings.xml /root/.m2/settings.xml
 
 RUN echo CERT_DIR is ${CERT_DIR}
 #RUN mkdir -p ${CERT_DIR}
